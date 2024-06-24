@@ -5,12 +5,12 @@ import { configDefaults } from "vitest/config";
 export default defineConfig({
   resolve: {
     alias: {
-      "@": resolve(__dirname, "src"),
-    },
+      "@": resolve(__dirname, "src")
+    }
   },
   test: {
     globals: true,
     environment: "jsdom",
-    exclude: [...configDefaults.exclude, "node_modules/**"],
-  },
+    exclude: [...configDefaults.exclude, "node_modules/**"]
+  }
 });
