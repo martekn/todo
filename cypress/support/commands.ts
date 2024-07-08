@@ -35,3 +35,13 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add("populateStorage", () => {
+  cy.fixture("tasks.json").then((tasks) => {
+    cy.visit("/", {
+      onBeforeLoad: (win) => {
+        win.localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
+    });
+  });
+});
