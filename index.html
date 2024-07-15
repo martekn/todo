@@ -2,17 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Todo list</title>
   </head>
   <body class="min-vh-100 p-5">
     <div id="app" class="container d-flex gap-3 flex-column pt-5">
       <h1>Todo List</h1>
       <form>
         <div class="form-inline my-2 my-lg-0 d-flex gap-2">
-          <label for="add-input" class="visually-hidden">Task</label>
-          <input id="add-input" class="form-control mr-sm-2" type="text" placeholder="Add task" />
+          <label for="task-input" class="visually-hidden">Task</label>
+          <input id="task-input" class="form-control mr-sm-2" type="text" placeholder="Add task" />
           <button
             id="input-button"
             class="btn btn-primary flex-shrink-0 my-2 my-sm-0"
@@ -24,7 +23,7 @@
         <div id="input-error" class="invalid-feedback">Error message</div>
       </form>
       <ul id="task-container" class="list-unstyled d-flex flex-column gap-3 m-0"></ul>
-      <button id="clear-button" class="btn btn-link align-self-end p-0">Clear all</button>
+      <button id="clear-button" class="btn btn-link align-self-end p-0 d-none">Clear all</button>
 
       <template id="task-item">
         <li id="" class="bg-dark p-3 rounded d-flex align-items-center gap-3">
