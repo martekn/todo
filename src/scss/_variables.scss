@@ -1,0 +1,24 @@
+// Colors
+$primary: #95ce60;
+$black: #0b0819;
+$dark: #121023;
+$white: #eaf4e1;
+$gray-600: #b2b6af;
+$green: #4fb751;
+$red: #d65763;
+
+// General
+$body-bg: $black;
+$font-family-sans-serif: "Oxanium", sans-serif;
+$font-weight-semibold: 600;
+$body-color: $white;
+$focus-ring-box-shadow: 0 0 0 $primary;
+
+// Inputs and buttons
+$input-bg: $dark;
+$input-border-color: lighten($dark, 5%);
+$input-placeholder-color: $gray-600;
+$custom-control-indicator-checked-color: $black;
+$input-focus-border-color: $primary;
+$input-btn-focus-color: $white;
+$input-btn-focus-width: 1px;

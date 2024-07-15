@@ -1,0 +1,55 @@
+#app {
+  @extend .container;
+  max-width: 40rem;
+}
+
+.btn {
+  font-weight: $font-weight-semibold;
+
+  &:not(.btn-link):focus-visible {
+    box-shadow: 0 0 0 1px $primary;
+  }
+
+  &.btn-primary:focus-visible {
+    box-shadow: 0 0 0 1px $white;
+  }
+
+  &.btn-link {
+    text-decoration: none;
+
+    &.btn-link:focus-visible {
+      box-shadow: none;
+      text-decoration: underline;
+    }
+  }
+}
+
+.form-check-input[type="checkbox"] {
+  height: 1.5rem;
+  width: 1.5rem;
+  appearance: none;
+  border: 1px solid $primary;
+  border-radius: 50%;
+  background: $black;
+  position: relative;
+
+  &:checked {
+    background: $primary;
+    border: 2px solid $black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:checked:before {
+    font-family: "bootstrap-icons";
+    font-size: 1.3rem;
+    content: "\F26E";
+    color: $black;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: 2px solid $white;
+  }
+}
