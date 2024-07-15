@@ -6,8 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="min-vh-100 p-5">
+    <div id="app" class="container d-flex gap-3 flex-column pt-5">
+      <h1>Todo List</h1>
+      <form>
+        <div class="form-inline my-2 my-lg-0 d-flex gap-2">
+          <label for="add-input" class="visually-hidden">Task</label>
+          <input id="add-input" class="form-control mr-sm-2" type="text" placeholder="Add task" />
+          <button
+            id="input-button"
+            class="btn btn-primary flex-shrink-0 my-2 my-sm-0"
+            type="submit"
+          >
+            Add task
+          </button>
+        </div>
+        <div id="input-error" class="invalid-feedback">Error message</div>
+      </form>
+      <ul id="task-container" class="list-unstyled d-flex flex-column gap-3 m-0"></ul>
+      <button id="clear-button" class="btn btn-link align-self-end p-0">Clear all</button>
+
+      <template id="task-item">
+        <li id="" class="bg-dark p-3 rounded d-flex align-items-center gap-3">
+          <input class="form-check-input mt-0" type="checkbox" />
+          <label class="task-content flex-grow-1"></label
+          ><button class="delete-button d-flex ms-4 p-0 align-items-start btn btn-link-secondary">
+            <i class="bi bi-x fs-5" aria-hidden="true"></i>
+            <span class="visually-hidden">Delete</span>
+          </button>
+        </li>
+      </template>
+    </div>
     <script type="module" src="/src/js/main.ts"></script>
   </body>
 </html>
