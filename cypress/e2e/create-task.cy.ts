@@ -23,7 +23,7 @@ describe("task creation", () => {
 
   it("does not add task when its longer than 150", () => {
     const longTaskContent =
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p";
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p.";
     cy.get("#task-input").type(`${longTaskContent} {enter}`);
     cy.get("#input-error").should("be.visible");
     cy.get("#task-container li").should("not.exist");
