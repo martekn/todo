@@ -1,4 +1,5 @@
-# Todo list
+# Todo
+![Screen Shot 2024-07-16 at 22 43 52](https://github.com/user-attachments/assets/59405a4c-3b59-4127-9476-d3b2aa3a1103)
 
 This is a simple project that I used to get familiar with typescript, while also getting some more experience with sass and bootstrap.
 
