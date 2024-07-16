@@ -7,6 +7,21 @@ import { Task } from "@/js/types/task";
 import { taskStorageHandler } from "../helper/taskStorageHandler";
 
 /**
+ * Sets the invalid state for the task input, including updating the DOM to reflect the error.
+ *
+ * @param error - The error message to display.
+ * @throws {ElementNotFoundError} If any required DOM elements (input container, task input, input error) are not found.
+ */
+const setInvalidState = (error: string) => {
+  const inputContainer = safeQuerySelector<HTMLDivElement>("#input-container");
+  const input = safeQuerySelector<HTMLInputElement>("#task-input", inputContainer);
+  input.classList.add("is-invalid");
+  inputContainer.classList.add("is-invalid");
+  const errorElement = safeQuerySelector<HTMLDivElement>("#input-error");
+  errorElement.innerText = error;
+};
+
+/**
  * Adds a new task to the task container and local storage.
  * Validates the input value before adding the task.
  *
@@ -16,6 +31,7 @@ import { taskStorageHandler } from "../helper/taskStorageHandler";
 export const addTask = (e: Event) => {
   try {
     e.preventDefault();
+
     const inputContainer = safeQuerySelector<HTMLDivElement>("#input-container");
     const input = safeQuerySelector<HTMLInputElement>("#task-input", inputContainer);
     const list = safeQuerySelector("#task-container");
@@ -26,10 +42,7 @@ export const addTask = (e: Event) => {
     const value = input.value.trim();
     const validation = validateTaskInput(value);
     if (!validation.isValid) {
-      input.classList.add("is-invalid");
-      inputContainer.classList.add("is-invalid");
-      const errorElement = safeQuerySelector<HTMLDivElement>("#input-error");
-      errorElement.innerText = validation.error ?? "";
+      setInvalidState(validation.error ?? "");
       return;
     }
 
@@ -44,6 +57,12 @@ export const addTask = (e: Event) => {
     input.value = "";
     clearButtonVisible.show();
   } catch (error) {
-    console.error(error);
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("Caught an unknown error", error);
+    }
+
+    setInvalidState("Unable to add task, please try again");
   }
 };

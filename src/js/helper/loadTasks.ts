@@ -1,7 +1,8 @@
 import { safeQuerySelector } from "@/js/helper/safeQuerySelector";
 import { TaskItem } from "@/js/components/TaskItem";
-import { Task } from "@/js/types/task";
 import { clearButtonVisible } from "@/js/helper/clearButtonVisible";
+import { ErrorAlert } from "@/js/components/ErrorAlert";
+import { taskStorageHandler } from "./taskStorageHandler";
 
 /**
  * Loads tasks from local storage and appends them to the task container in the DOM.
@@ -15,18 +16,25 @@ export const loadTasks = () => {
   try {
     const list = safeQuerySelector<HTMLUListElement>("#task-container");
 
-    const tasksJson = localStorage.getItem("tasks") ?? "[]";
-    const tasks: Task[] = JSON.parse(tasksJson);
+    const tasks = taskStorageHandler.get();
 
     for (const task of tasks) {
       const { id, completed, title } = task;
-      const taskItem: TaskItem = new TaskItem(id, completed, title);
+      const taskItem = new TaskItem(id, completed, title);
       list.appendChild(taskItem);
     }
     if (tasks.length > 0) {
       clearButtonVisible.show();
     }
   } catch (error) {
-    console.error(error);
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("Caught an unknown error", error);
+    }
+
+    safeQuerySelector("#task-container").append(
+      new ErrorAlert("Unable to load tasks, please try again later", "load-error")
+    );
   }
 };
