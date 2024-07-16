@@ -17,7 +17,7 @@
   &.btn-link {
     text-decoration: none;
 
-    &.btn-link:focus-visible {
+    &:focus-visible {
       box-shadow: none;
       text-decoration: underline;
     }
@@ -46,13 +46,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
 
-  &:checked:before {
-    font-family: "bootstrap-icons";
-    font-size: 1.3rem;
-    content: "\F26E";
-    color: $black;
+    + label {
+      text-decoration: line-through;
+    }
+
+    &:before {
+      font-family: "bootstrap-icons";
+      font-size: 1.3rem;
+      content: "\F26E";
+      color: $black;
+    }
   }
 
   &:focus-visible {
