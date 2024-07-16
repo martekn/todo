@@ -9,7 +9,7 @@
     <div id="app" class="container d-flex gap-3 flex-column pt-5">
       <h1>Todo List</h1>
       <form>
-        <div class="form-inline my-2 my-lg-0 d-flex gap-2">
+        <div id="input-container" class="form-inline my-2 my-lg-0 d-flex gap-2">
           <label for="task-input" class="visually-hidden">Task</label>
           <input id="task-input" class="form-control mr-sm-2" type="text" placeholder="Add task" />
           <button
@@ -28,8 +28,8 @@
       <template id="task-item">
         <li id="" class="bg-dark p-3 rounded d-flex align-items-center gap-3">
           <input class="form-check-input mt-0" type="checkbox" />
-          <label class="task-content flex-grow-1"></label
-          ><button class="delete-button d-flex ms-4 p-0 align-items-start btn btn-link-secondary">
+          <label class="task-content flex-grow-1"></label>
+          <button class="delete-button d-flex ms-4 p-0 align-items-start btn btn-link-secondary">
             <i class="bi bi-x fs-5" aria-hidden="true"></i>
             <span class="visually-hidden">Delete</span>
           </button>
