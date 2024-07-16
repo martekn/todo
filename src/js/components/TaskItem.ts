@@ -1,7 +1,16 @@
 import { Task } from "@/js/types/task";
 import { safeQuerySelector } from "@/js/helper/safeQuerySelector";
 import { taskStorageHandler } from "@/js/helper/taskStorageHandler";
+import { clearButtonVisible } from "@/js/helper/clearButtonVisible";
 
+/**
+ * Represents a task item element in the DOM, extending HTMLElement.
+ * Implements the Task interface, with properties for id, completed status, and title.
+ *
+ * @class
+ * @extends {HTMLElement}
+ * @implements {Task}
+ */
 export class TaskItem extends HTMLElement implements Task {
   id: string;
   completed: boolean;
@@ -36,6 +45,9 @@ export class TaskItem extends HTMLElement implements Task {
     const tasks = taskStorageHandler.get();
     const updatedTasks = tasks.filter((task) => task.id !== this.id);
     taskStorageHandler.set(updatedTasks);
+    if (updatedTasks.length === 0) {
+      clearButtonVisible.hide();
+    }
     this.remove();
   }
 
