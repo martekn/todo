@@ -1,7 +1,4 @@
-// #region -IMPORTS-
-// Third-party library imports
 import { customAlphabet } from "nanoid";
-// #endregion
 
 /**
  * Generate secure unique ID with custom alphabet and max length of 21.
@@ -11,7 +8,7 @@ import { customAlphabet } from "nanoid";
  * This contains no characters that can be mistaken for each other such as lower case 'l' and uppercase 'i'
  *
  * @function
- * @returns {string} unique ID
+ * @returns unique ID
  * @example
  * element.id = nanoid()
  */

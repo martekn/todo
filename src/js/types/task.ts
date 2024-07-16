@@ -4,13 +4,11 @@
 export interface Task {
   /**
    * The unique identifier for the task.
-   * @type {string}
    */
   id: string;
 
   /**
    * The title or description of the task.
-   * @type {string}
    */
   title: string;
 

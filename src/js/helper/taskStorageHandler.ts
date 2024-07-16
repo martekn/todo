@@ -7,7 +7,7 @@ export const taskStorageHandler = {
   /**
    * Retrieves the list of tasks from localStorage.
    *
-   * @returns {Task[]} The list of tasks stored in localStorage. If no tasks are found, an empty array is returned.
+   * @returns  The list of tasks stored in localStorage. If no tasks are found, an empty array is returned.
    */
   get(): Task[] {
     const tasksJson = localStorage.getItem("tasks") ?? "[]";
@@ -18,7 +18,7 @@ export const taskStorageHandler = {
   /**
    * Stores the list of tasks in localStorage.
    *
-   * @param {Task[]} tasks - The list of tasks to store in localStorage.
+   * @param tasks - The list of tasks to store in localStorage.
    */
   set(tasks: Task[]) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
